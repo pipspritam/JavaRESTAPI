@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pips.JavaRESTAPI.model.ServerInfo;
-import com.pips.JavaRESTAPI.repository.ServerRepository;
 import com.pips.JavaRESTAPI.service.Service;
-
-import io.micrometer.core.ipc.http.HttpSender.Response;
 
 @RestController
 @RequestMapping("/")
@@ -30,47 +27,42 @@ public class Controller {
         service.addServer(serverInfo);
 
         return "Server added";
-    }  
+    }
 
     @GetMapping
-    public ResponseEntity< List<ServerInfo>> getServers() {
+    public ResponseEntity<List<ServerInfo>> getServers() {
         return ResponseEntity.ok(service.getServers());
-        
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ServerInfo> getServerById(@PathVariable String id) {
         ServerInfo serverInfo = service.getServerById(id);
-        if(serverInfo == null) {
+        if (serverInfo == null) {
             return ResponseEntity.notFound().build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(serverInfo);
         }
     }
 
     @GetMapping("getServers/{name}")
-    public ResponseEntity< List<ServerInfo>> getServerByName(@PathVariable String name) {
-        List <ServerInfo> serverInfo = service.getServerByName(name);
-        if(serverInfo.isEmpty()) {
+    public ResponseEntity<List<ServerInfo>> getServerByName(@PathVariable String name) {
+        List<ServerInfo> serverInfo = service.getServerByName(name);
+        if (serverInfo.isEmpty()) {
             return ResponseEntity.notFound().build();
-        }
-        else {
+        } else {
             return ResponseEntity.ok(serverInfo);
         }
     }
 
     @DeleteMapping("/{id}")
     public String deleteServer(@PathVariable String id) {
-        boolean flag =  service.deleteServer(id);
-        if(!flag) {
+        boolean flag = service.deleteServer(id);
+        if (!flag) {
             return "Server not found";
-        }
-        else {
+        } else {
             return "Server deleted";
         }
     }
-
-    
 
 }
