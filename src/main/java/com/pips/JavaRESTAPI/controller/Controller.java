@@ -22,6 +22,7 @@ public class Controller {
     @Autowired
     Service service;
 
+
     @PostMapping("/addServer")
     public String addServer(@RequestBody ServerInfo serverInfo) {
         service.addServer(serverInfo);
@@ -29,13 +30,13 @@ public class Controller {
         return "Server added";
     }
 
-    @GetMapping
+    @GetMapping("/getServers")
     public ResponseEntity<List<ServerInfo>> getServers() {
         return ResponseEntity.ok(service.getServers());
 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getServerByid/{id}")
     public ResponseEntity<ServerInfo> getServerById(@PathVariable String id) {
         ServerInfo serverInfo = service.getServerById(id);
         if (serverInfo == null) {
@@ -45,7 +46,7 @@ public class Controller {
         }
     }
 
-    @GetMapping("getServers/{name}")
+    @GetMapping("/getServers/{name}")
     public ResponseEntity<List<ServerInfo>> getServerByName(@PathVariable String name) {
         List<ServerInfo> serverInfo = service.getServerByName(name);
         if (serverInfo.isEmpty()) {
@@ -55,7 +56,7 @@ public class Controller {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteServer/{id}")
     public String deleteServer(@PathVariable String id) {
         boolean flag = service.deleteServer(id);
         if (!flag) {
