@@ -20,5 +20,26 @@ public class Service {
     public  List<ServerInfo> getServers() {
         return serverRepository.findAll();
     }
+
+    public ServerInfo getServerById(String id) {
+        return serverRepository.findById(id).orElse(null);
+
+    }
+
+    public List<ServerInfo> getServerByName(String name) {
+        return serverRepository.findByName(name);
+    }
+
+    public boolean deleteServer(String id) {
+        boolean exists = serverRepository.existsById(id);
+        if(!exists) {
+            return false;
+        }
+        else {
+            serverRepository.deleteById(id);
+            return true;
+    }
+        
+    }
     
 }
