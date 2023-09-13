@@ -6,8 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(value = "server")
 
-
-
 public class ServerInfo {
     @Id
     private String id;
@@ -18,14 +16,13 @@ public class ServerInfo {
     @Field
     private String framework;
 
-
     public ServerInfo(String id, String name, String language, String framework) {
         this.id = id;
         this.name = name;
         this.language = language;
         this.framework = framework;
     }
-    
+
     public ServerInfo() {
         this.id = "";
         this.name = "";
@@ -44,7 +41,6 @@ public class ServerInfo {
     public String getLanguage() {
         return language;
     }
-
 
     public String getFramework() {
         return framework;
@@ -66,7 +62,4 @@ public class ServerInfo {
         this.name = name;
     }
 
-
-    
-    
 }

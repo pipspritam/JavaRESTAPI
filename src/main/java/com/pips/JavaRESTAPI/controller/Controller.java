@@ -22,7 +22,6 @@ public class Controller {
     @Autowired
     Service service;
 
-
     @PostMapping("/addServer")
     public String addServer(@RequestBody ServerInfo serverInfo) {
         service.addServer(serverInfo);

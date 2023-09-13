@@ -10,6 +10,4 @@ public class JavaRestapiApplication {
 		SpringApplication.run(JavaRestapiApplication.class, args);
 	}
 
-	
-
 }
