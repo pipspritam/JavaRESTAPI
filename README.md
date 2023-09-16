@@ -30,11 +30,11 @@
 4. Find servers by name <br>
    http://127.0.0.1:8081/getServers/{name}
 
-   <img src="./screenshots/gerServeraByname.png">
+   <img src="./screenshots/gerServersByName.png">
    
 5. Delete a server <br>
    http://127.0.0.1:8081/deleteServer/{id} 
 
-   <img src="./screenshot/deleteServer.png">  
+   <img src="./screenshots/deleteServer.png">  
 
 
