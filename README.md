@@ -15,22 +15,22 @@
 1. Create a new server <br>
    http://127.0.0.1:8081/addServer
 
-   <img src="./screenshot/addServer.png">
+   <img src="./screenshots/addServer.png">
    
 2. Get a list of all servers <br>
    http://127.0.0.1:8081/getServers
 
-   <img src="./screenshot/getServers.png">
+   <img src="./screenshots/getServers.png">
    
 3. Get a single server by ID <br>
    http://127.0.0.1:8081/getServerByid/{id}
 
-   <img src="./screenshot/getServerByid.png">
+   <img src="./screenshots/getServerByid.png">
    
 4. Find servers by name <br>
    http://127.0.0.1:8081/getServers/{name}
 
-   <img src="./screenshot/gerServeraByname.png">
+   <img src="./screenshots/gerServeraByname.png">
    
 5. Delete a server <br>
    http://127.0.0.1:8081/deleteServer/{id} 
