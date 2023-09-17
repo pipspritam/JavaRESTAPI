@@ -12,8 +12,18 @@ public class Service {
     @Autowired
     ServerRepository serverRepository;
 
-    public void addServer(ServerInfo serverInfo) {
-        serverRepository.save(serverInfo);
+    public ServerInfo addServer(ServerInfo serverInfo){
+        ServerInfo temp = serverRepository.findById(serverInfo.getId()).orElse(null);
+        if(temp == null) {
+            serverRepository.save(serverInfo);
+            return serverInfo;
+        }
+        else {
+            serverInfo.setId("___");
+            return serverInfo;
+
+        }
+        
 
     }
 
@@ -30,7 +40,7 @@ public class Service {
         return serverRepository.findByName(name);
     }
 
-    public boolean deleteServer(String id) {
+    public boolean deleteServer(String id){
         boolean exists = serverRepository.existsById(id);
         if(!exists) {
             return false;

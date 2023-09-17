@@ -25,10 +25,16 @@ public class Controller {
     Service service;
 
     @PostMapping("/addServer")
-    public String addServer(@RequestBody ServerInfo serverInfo) {
-        service.addServer(serverInfo);
-
-        return "Server added";
+    public ServerInfo addServer(@RequestBody ServerInfo serverInfo) {
+        if(serverInfo.getId().isEmpty() || serverInfo.getName().isEmpty() || serverInfo.getLanguage().isEmpty() || serverInfo.getFramework().isEmpty()) {
+            serverInfo.setId("");
+            return serverInfo;
+        }
+        else {
+            return service.addServer(serverInfo);
+        
+        }
+        
     }
 
     @GetMapping("/getServers")
@@ -58,12 +64,16 @@ public class Controller {
     }
 
     @DeleteMapping("/deleteServer/{id}")
-    public String deleteServer(@PathVariable String id) {
+    public ServerInfo deleteServer(@PathVariable String id){
         boolean flag = service.deleteServer(id);
         if (!flag) {
-            return "Server not found";
+            ServerInfo serverInfo = new ServerInfo();
+            serverInfo.setId("");
+            return serverInfo;
         } else {
-            return "Server deleted";
+            ServerInfo serverInfo = new ServerInfo();
+            serverInfo.setId("Deleted");
+            return serverInfo;
         }
     }
 
