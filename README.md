@@ -31,17 +31,22 @@ To run this project, follow these steps:
 ## End points of API
 1. Create a new server <br>
    http://127.0.0.1:8081/addServer
+   
    <img src="./screenshots/addServer.png">
    
 3. Get a list of all servers <br>
    http://127.0.0.1:8081/getServers
+   
    <img src="./screenshots/getServers.png">
    
-4. Get a single server by ID <br>
+5. Get a single server by ID <br>
    http://127.0.0.1:8081/getServerByid/{id}
-   * If given ID is present in database
+   * If given ID is present in database <br>
+     
    <img src="./screenshots/getServerByid.png">
-   * If given ID is not present in database
+   
+   * If given ID is not present in database <br>
+     
    <img src="./screenshots/getServerByidNo.png">
    
 6. Find servers by name <br>
